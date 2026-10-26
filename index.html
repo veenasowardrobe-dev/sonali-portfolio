@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Freelance video editor portfolio — short-form reels, social media videos, and branded content." />
+  <title>Sonali Mishra | Video Editor Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root { --bg:#101010; --panel:#191919; --text:#f6f3ee; --muted:#aaa7a1; --accent:#d8ff3e; --line:#303030; }
+    * { box-sizing:border-box; }
+    html { scroll-behavior:smooth; }
+    body { margin:0; background:var(--bg); color:var(--text); font-family:"DM Sans",sans-serif; }
+    a { color:inherit; text-decoration:none; }
+    .wrap { width:min(1120px, calc(100% - 40px)); margin:auto; }
+    nav { display:flex; align-items:center; justify-content:space-between; padding:24px 0; border-bottom:1px solid var(--line); }
+    .brand { font-family:"Space Grotesk",sans-serif; font-weight:700; letter-spacing:-.04em; }
+    .brand span { color:var(--accent); }
+    .navlinks { display:flex; gap:24px; color:var(--muted); font-size:14px; }
+    .navlinks a:hover { color:var(--accent); }
+    .hero { padding:90px 0 72px; display:grid; grid-template-columns:1.3fr .7fr; gap:42px; align-items:center; }
+    .eyebrow { color:var(--accent); text-transform:uppercase; letter-spacing:.16em; font-size:12px; font-weight:700; }
+    h1 { font:600 clamp(42px,7vw,82px)/.98 "Space Grotesk",sans-serif; letter-spacing:-.065em; margin:18px 0 24px; }
+    h1 em { color:var(--accent); font-style:normal; }
+    .intro { color:var(--muted); font-size:17px; line-height:1.7; max-width:590px; }
+    .actions { display:flex; gap:12px; flex-wrap:wrap; margin-top:30px; }
+    .btn { display:inline-flex; align-items:center; justify-content:center; padding:13px 18px; border-radius:999px; font-weight:700; font-size:14px; border:1px solid var(--line); }
+    .btn.primary { background:var(--accent); color:#101010; border-color:var(--accent); }
+    .btn:hover { transform:translateY(-2px); }
+    .hero-card { background:linear-gradient(145deg,#292929,#151515); border:1px solid #333; border-radius:24px; padding:28px; min-height:300px; display:flex; flex-direction:column; justify-content:space-between; }
+    .playmark { width:66px; height:66px; display:grid; place-items:center; border-radius:50%; background:var(--accent); color:#111; font-size:25px; }
+    .hero-card h2 { font:600 27px/1.1 "Space Grotesk",sans-serif; letter-spacing:-.04em; margin:28px 0 8px; }
+    .hero-card p { color:var(--muted); line-height:1.6; margin:0; }
+    .section { padding:44px 0 76px; }
+    .section-head { display:flex; justify-content:space-between; gap:20px; align-items:end; margin-bottom:26px; }
+    h2.section-title { font:600 clamp(30px,4vw,44px)/1.05 "Space Grotesk",sans-serif; letter-spacing:-.05em; margin:10px 0 0; }
+    .section-head p { color:var(--muted); max-width:370px; line-height:1.6; margin:0; font-size:14px; }
+    .filters { display:flex; gap:8px; flex-wrap:wrap; margin-bottom:22px; }
+    .filter { border:1px solid var(--line); background:transparent; color:var(--muted); border-radius:99px; padding:9px 14px; cursor:pointer; font:500 13px "DM Sans",sans-serif; }
+    .filter.active,.filter:hover { color:#111; background:var(--accent); border-color:var(--accent); }
+    .grid { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; }
+    .project { background:var(--panel); border:1px solid var(--line); border-radius:18px; overflow:hidden; transition:transform .2s,border-color .2s; }
+    .project:hover { transform:translateY(-4px); border-color:#626262; }
+    .thumb { aspect-ratio:9/12; background:radial-gradient(circle at 70% 20%,#4a4a4a,#202020 45%,#111); display:flex; align-items:center; justify-content:center; position:relative; overflow:hidden; }
+    .thumb::before { content:""; position:absolute; width:190px; height:190px; border:1px solid #ffffff20; border-radius:50%; }
+    .thumb::after { content:""; position:absolute; width:125px; height:125px; border:1px solid #ffffff20; border-radius:50%; }
+    .thumb .num { font:700 74px "Space Grotesk",sans-serif; color:#ffffff20; z-index:1; }
+    .play { position:absolute; z-index:2; width:46px; height:46px; border-radius:50%; display:grid; place-items:center; background:var(--accent); color:#111; font-size:17px; }
+    .tag { position:absolute; top:13px; left:13px; z-index:2; background:#111c; border:1px solid #ffffff25; border-radius:99px; padding:6px 9px; font-size:10px; text-transform:uppercase; letter-spacing:.1em; }
+    .project-info { padding:17px; }
+    .project-info h3 { margin:0 0 6px; font:600 18px "Space Grotesk",sans-serif; }
+    .project-info p { color:var(--muted); font-size:13px; line-height:1.5; margin:0 0 14px; }
+    .watch { color:var(--accent); font-size:13px; font-weight:700; }
+    .watch:hover { text-decoration:underline; }
+    .about-grid { display:grid; grid-template-columns:.8fr 1.2fr; gap:20px; }
+    .about-box,.service { border:1px solid var(--line); background:var(--panel); border-radius:20px; padding:26px; }
+    .about-box h3 { font:600 25px "Space Grotesk",sans-serif; margin:0 0 12px; }
+    .about-box p { color:var(--muted); line-height:1.7; margin:0; }
+    .services { display:grid; grid-template-columns:repeat(2,1fr); gap:12px; }
+    .service strong { display:block; margin-bottom:8px; font:600 18px "Space Grotesk",sans-serif; }
+    .service span { color:var(--muted); font-size:13px; line-height:1.6; }
+    .contact { background:var(--accent); color:#111; border-radius:24px; padding:42px; display:flex; justify-content:space-between; align-items:center; gap:24px; }
+    .contact h2 { font:600 clamp(30px,4vw,48px)/1 "Space Grotesk",sans-serif; letter-spacing:-.05em; margin:10px 0 12px; }
+    .contact p { max-width:520px; line-height:1.6; margin:0; }
+    .contact .btn { background:#111; color:white; border-color:#111; white-space:nowrap; }
+    footer { padding:28px 0; display:flex; justify-content:space-between; gap:20px; color:var(--muted); font-size:12px; border-top:1px solid var(--line); margin-top:30px; }
+    .note { color:var(--muted); font-size:12px; line-height:1.6; margin-top:18px; }
+    @media(max-width:800px) { .hero { grid-template-columns:1fr; padding-top:58px; } .hero-card { min-height:220px; } .grid { grid-template-columns:repeat(2,1fr); } .about-grid { grid-template-columns:1fr; } .contact { align-items:flex-start; flex-direction:column; } }
+    @media(max-width:520px) { .wrap { width:min(100% - 28px,1120px); } .navlinks { gap:12px; font-size:12px; } .navlinks a:nth-child(2) { display:none; } .grid { grid-template-columns:1fr; } .thumb { aspect-ratio:4/3; } .section-head { align-items:flex-start; flex-direction:column; } .services { grid-template-columns:1fr; } .contact { padding:28px; } footer { flex-direction:column; } }
+  </style>
+</head>
+<body>
+  <header class="wrap">
+    <nav>
+      <a class="brand" href="#">SONALI<span>.</span> EDITS</a>
+      <div class="navlinks">
+        <a href="#work">My Work</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero wrap">
+      <div>
+        <div class="eyebrow">Freelance Video Editor · India</div>
+        <h1>I turn raw clips into <em>scroll-stopping</em> stories.</h1>
+        <p class="intro">Short-form video editing for creators and brands — engaging reels, clean cuts, captions, sound design, and edits made for social media.</p>
+        <div class="actions">
+          <a class="btn primary" href="#work">Explore my work ↘</a>
+          <a class="btn" href="#contact">Let’s work together</a>
+        </div>
+      </div>
+      <aside class="hero-card">
+        <div class="playmark">▶</div>
+        <div>
+          <div class="eyebrow">What I bring to the edit</div>
+          <h2>Good pacing.<br>Strong hooks.<br>Clear storytelling.</h2>
+          <p>Reels · Talking-head videos · Product promos · Social content</p>
+        </div>
+      </aside>
+    </section>
+
+    <section class="section wrap" id="work">
+      <div class="section-head">
+        <div><div class="eyebrow">Selected projects</div><h2 class="section-title">A few edits.</h2></div>
+        <p>these sample works shows different styles and skills.</p>
+      </div>
+      <div class="filters" aria-label="Filter projects">
+        <button class="filter active" data-filter="all">All work</button>
+        <button class="filter" data-filter="reels">Reels</button>
+        <button class="filter" data-filter="brand">Brand videos</button>
+        <button class="filter" data-filter="talking">Talking head</button>
+      </div>
+      <div class="grid" id="projectGrid">
+        <!-- EDIT YOUR PROJECTS: replace each # link with your public video URL (YouTube, Instagram, Drive, etc.) -->
+        <article class="project" data-category="reels">
+          <a href="https://www.instagram.com/reel/DMXZxVqsyhe/?dlrf=MXRybnpmbTNnZDloMA==" target="_blank" rel="noopener">
+            <div class="thumb"><span class="tag">Reel edit</span><span class="num">01</span><span class="play">▶</span></div>
+            <div class="project-info"><h3>Fast-Paced Reel</h3><p>Quick cuts, hook-focused pacing, captions and sound effects.</p><span class="watch">Watch project ↗</span></div>
+          </a>
+        </article>
+        <article class="project" data-category="brand">
+          <a href="https://www.instagram.com/reel/DLAfWKXiADr/?rpxt=MWJiZG84ejU0Y3hocg==" target="_blank" rel="noopener">
+            <div class="thumb"><span class="tag">Brand video</span><span class="num">02</span><span class="play">▶</span></div>
+            <div class="project-info"><h3>Product Showcase</h3><p>Clean product storytelling with music and polished transitions.</p><span class="watch">Watch project ↗</span></div>
+          </a>
+        </article>
+        <article class="project" data-category="talking">
+          <a href="https://www.instagram.com/reel/De4CtAQMts2/?xtok=MXYzcWtmc202a2x1OQ==" target="_blank" rel="noopener">
+            <div class="thumb"><span class="tag">Talking head</span><span class="num">03</span><span class="play">▶</span></div>
+            <div class="project-info"><h3>Creator Explainer</h3><p>Jump cuts, readable subtitles, emphasis and supporting visuals.</p><span class="watch">Watch project ↗</span></div>
+          </a>
+        </article>
+        <article class="project" data-category="reels">
+          <a href="https://drive.google.com/file/d/1iFJAa746lqoPXyXnBrnV1waNPGH-FKO-/view?usp=sharing" target="_blank" rel="noopener">
+            <div class="thumb"><span class="tag">Reel edit</span><span class="num">04</span><span class="play">▶</span></div>
+            <div class="project-info"><h3>Trend-Style Edit</h3><p>Rhythm-led editing, beat sync and a strong visual opening.</p><span class="watch">Watch project ↗</span></div>
+          </a>
+        </article>
+        <article class="project" data-category="brand">
+          <a href="https://drive.google.com/file/d/1YMgH-VajHLDcu1RpslzVHMiMRJN0Zo6r/view?usp=sharing" target="_blank" rel="noopener">
+            <div class="thumb"><span class="tag">Promo</span><span class="num">05</span><span class="play">▶</span></div>
+            <div class="project-info"><h3>Promotional Video</h3><p>Brand-focused edit with a clear message and call to action.</p><span class="watch">Watch project ↗</span></div>
+          </a>
+        </article>
+        <article class="project" data-category="talking">
+          <a href="https://drive.google.com/file/d/1uGlsrC0iZniilJVF7jzPffZ0Rd3sIKZr/view?usp=drive_link" target="_blank" rel="noopener">
+            <div class="thumb"><span class="tag">Social content</span><span class="num">06</span><span class="play">▶</span></div>
+            <div class="project-info"><h3>Educational Short</h3><p>Simple, easy-to-follow editing for informative content.</p><span class="watch">Watch project ↗</span></div>
+          </a>
+        </article>
+        <article class="project" data-category="brand">
+          <a href="https://drive.google.com/file/d/1f1LiGFk6yvODKh5zZJGqlcEwSHmzcF5X/view?usp=sharing" target="_blank" rel="noopener">
+            <div class="thumb"><span class="tag">Promo</span><span class="num">05</span><span class="play">▶</span></div>
+            <div class="project-info"><h3>Promotional Video</h3><p>Brand-focused edit with a clear message and call to action using AI avatar (AI avatar is also cerated by me with prompts).</p><span class="watch">Watch project ↗</span></div>
+          </a>
+         </article>
+        <article class="project" data-category="talking">
+          <a href="https://drive.google.com/file/d/1oxEfd6R6bofK6XgOUAH-Esev9gYv-Ftg/view?usp=drive_link" target="_blank" rel="noopener">
+            <div class="thumb"><span class="tag">Social content</span><span class="num">06</span><span class="play">▶</span></div>
+            <div class="project-info"><h3>Informative Short</h3><p>Simple, easy-to-follow editing for informative content with voice overs only.</p><span class="watch">Watch project ↗</span></div>
+          </a>
+        </article>
+      </div>
+      <p class="note">Portfolio is just the small cover i do have vairety of edits.</p>
+    </section>
+
+    <section class="section wrap" id="about">
+      <div class="section-head"><div><div class="eyebrow">A little about me</div><h2 class="section-title">Editing with purpose.</h2></div></div>
+      <div class="about-grid">
+        <div class="about-box">
+          <h3>Hey, I’m Sonali.</h3>
+          <p>I’m a freelance video editor who helps creators and businesses turn footage into engaging social content. I care about pacing, clarity, and edits that fit each brand’s vibe.</p>
+        </div>
+        <div class="services">
+          <div class="service"><strong>01 / Reels & Shorts</strong><span>Vertical videos, engaging hooks, tight pacing and subtitles.</span></div>
+          <div class="service"><strong>02 / Sound & Captions</strong><span>Sound effects, music sync, captions and audio cleanup.</span></div>
+          <div class="service"><strong>03 / Brand Content</strong><span>Product showcases, promos and social media creatives.</span></div>
+          <div class="service"><strong>04 / Consistent Delivery</strong><span>Clear communication, revisions agreed in advance and reliable delivery.</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="wrap" id="contact">
+      <div class="contact">
+        <div>
+          <div class="eyebrow" style="color:#252525">Have a video in mind?</div>
+          <h2>Let’s make it stand out.</h2>
+          <p>Send me your brief, reference style, video length and deadline. I’ll get back to you about the project.</p>
+        </div>
+        <!-- Replace the email address below with your own before publishing -->
+        <a class="btn" href="mailto:sonaliiimishraa777@gmail.com?subject=Video%20Editing%20Enquiry">Email me ↗</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="wrap">
+    <span>© <span id="year"></span> Sonali Mishra · Video Editor</span>
+    <span>Made to show good work, simply.</span>
+  </footer>
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    const filters = document.querySelectorAll('.filter');
+    const projects = document.querySelectorAll('.project');
+    filters.forEach(button => button.addEventListener('click', () => {
+      filters.forEach(item => item.classList.remove('active'));
+      button.classList.add('active');
+      const category = button.dataset.filter;
+      projects.forEach(project => {
+        project.style.display = category === 'all' || project.dataset.category === category ? '' : 'none';
+      });
+    }));
+  </script>
+</body>
+</html>
